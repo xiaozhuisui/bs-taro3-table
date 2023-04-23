@@ -1,10 +1,10 @@
 {
-  "name": "taro3-table",
-  "version": "1.1.2",
+  "name": "bs-taro3-table",
+  "version": "1.0.0",
   "author": "qxtang",
   "main": "build/Table/index.js",
   "types": "build/Table/index.d.ts",
-  "description": "基于 Taro3、React 的微信小程序端多功能表格组件",
+  "description": "比升 基于 Taro3、React 的微信小程序端多功能表格组件",
   "templateInfo": {
     "name": "default",
     "typescript": true,

@@ -13,8 +13,10 @@ import './style.css';
 // types
 import { AnyOpt, CompareFn, FixedType, IColumns, Props, SortOrder } from './types';
 
+const DEFAULT_COL_WIDTH = 50; // 默认列宽
+
+
 // constants
-const DEFAULT_COL_WIDTH = 100; // 默认列宽
 const JC_TA_MAP = {
     'left': 'flex-start',
     'center': 'center',
@@ -28,6 +30,25 @@ const getSize = (size: string | number): string => {
         return String(size);
     }
 };
+
+const getSizeBs = (size: string | number, length: number): string => {
+  if (length) {
+    const leng = Taro.pxTransform(length * 12 * 2);
+    if (leng > 100) {
+      return "100";
+    } else if (leng > 50) {
+      return "50";
+    }
+    return leng;
+  }
+
+  if (typeof size === "number") {
+    return Taro.pxTransform((size as number) * 2);
+  } else {
+    return String(size);
+  }
+};
+
 
 const compare = (a, b, sortOrder: SortOrder = 'ascend'): number => {
     if (isNaN(Number(a)) || isNaN(Number(b))) {
@@ -147,6 +168,7 @@ const Table = (props: Props): JSX.Element | null => {
         multipleSort = false,
         scroll = {}
     } = props;
+    const DEFAULT_COL_WIDTH = pColumns?.length<5?100: 50; // 默认列宽
 
     const [dataSource, setDataSource] = useState<AnyOpt[]>(pDataSource);
     const [columns, setColumns] = useState<IColumns[]>(pColumns);
@@ -208,6 +230,7 @@ const Table = (props: Props): JSX.Element | null => {
                 style={{
                     [column.fixed as string]: column.fixed && calculateFixedDistance({ fixedType: column.fixed, index, columns }),
                     width: getSize(column.width || DEFAULT_COL_WIDTH),
+                    padding:"0 4rpx",
                     ...column.titleStyle,
                     ...titleStyle,
                     justifyContent: column.align && JC_TA_MAP[column.align]
@@ -285,6 +308,7 @@ const Table = (props: Props): JSX.Element | null => {
                                     textAlign: columnItem.align || 'center',
                                     width: getSize(columnItem.width || DEFAULT_COL_WIDTH),
                                     [columnItem.fixed as string]: columnItem.fixed && calculateFixedDistance({ fixedType: columnItem.fixed, index: colIndex, columns }),
+                                    padding:"0 4rpx",
                                     ...columnItem.style,
                                     ...colStyle
                                 }}
