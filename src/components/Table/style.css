@@ -138,7 +138,7 @@
 }
 
 .taro3table .taro3table_table .taro3table_body>.taro3table_row {
-  min-height: 120rpx;
+  min-height: 80rpx;
   position: relative;
   display: flex;
   align-items: center;
@@ -155,7 +155,7 @@
 }
 
 .taro3table .taro3table_table .taro3table_body>.taro3table_row>.taro3table_col {
-  min-height: 120rpx;
+  min-height: 80rpx;
   background-color: #ffffff;
   display: flex;
   align-items: center;
