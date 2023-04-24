@@ -20,7 +20,7 @@ import {
   SortOrder,
 } from "./types";
 
-const DEFAULT_COL_WIDTH = 50; // 默认列宽
+const DEFAULT_COL_WIDTH = 40; // 默认列宽
 
 // constants
 const JC_TA_MAP = {
@@ -255,7 +255,7 @@ const Table = (props: Props): JSX.Element | null => {
               Math.max(
                 365 / (columns.length || 1),
                 DEFAULT_COL_WIDTH,
-                (column?.title as string)?.length * 20
+                (column?.title as string)?.length * 15
               )
           ),
           padding: "0 4rpx",
@@ -344,7 +344,7 @@ const Table = (props: Props): JSX.Element | null => {
                         columns.find(
                           (item) => item.dataIndex === columnItem.dataIndex
                         )?.title as string
-                      )?.length * 20
+                      )?.length * 15
                     )
                 ),
                 [columnItem.fixed as string]:
