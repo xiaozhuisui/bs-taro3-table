@@ -32,7 +32,7 @@
 # 安装
 
 ```sh
-npm install taro3-table
+npm install bs-taro3-table
 ```
 
 # 使用

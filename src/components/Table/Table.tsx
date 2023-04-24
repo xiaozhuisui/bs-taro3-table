@@ -252,11 +252,11 @@ const Table = (props: Props): JSX.Element | null => {
             }),
           width: getSize(
             column.width ||
-              Math.max(
+              Math.min(150,(Math.max(
                 365 / (columns.length || 1),
                 DEFAULT_COL_WIDTH,
                 (column?.title as string)?.length * 15
-              )
+              )))
           ),
           padding: "0 4rpx",
           ...column.titleStyle,
@@ -337,7 +337,7 @@ const Table = (props: Props): JSX.Element | null => {
                 textAlign: columnItem.align || "center",
                 width: getSize(
                   columnItem.width ||
-                    Math.max(
+                    Math.min(150,Math.max(
                       365 / (columns.length || 0),
                       DEFAULT_COL_WIDTH,
                       (
@@ -345,7 +345,7 @@ const Table = (props: Props): JSX.Element | null => {
                           (item) => item.dataIndex === columnItem.dataIndex
                         )?.title as string
                       )?.length * 15
-                    )
+                    ))
                 ),
                 [columnItem.fixed as string]:
                   columnItem.fixed &&

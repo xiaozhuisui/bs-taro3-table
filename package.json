@@ -1,6 +1,6 @@
 {
   "name": "bs-taro3-table",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "author": "qxtang",
   "main": "build/Table/index.js",
   "types": "build/Table/index.d.ts",
