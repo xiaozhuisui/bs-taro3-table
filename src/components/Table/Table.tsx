@@ -252,7 +252,7 @@ const Table = (props: Props): JSX.Element | null => {
             }),
           width: getSize(
             column.width ||
-              Math.min(100,(Math.max(
+              Math.min(80,(Math.max(
                 340 / (columns.length || 1),
                 DEFAULT_COL_WIDTH,
                 (column?.title as string)?.length * 12
@@ -337,7 +337,7 @@ const Table = (props: Props): JSX.Element | null => {
                 textAlign: columnItem.align || "center",
                 width: getSize(
                   columnItem.width ||
-                    Math.min(100,Math.max(
+                    Math.min(80,Math.max(
                       340 / (columns.length || 0),
                       DEFAULT_COL_WIDTH,
                       (
