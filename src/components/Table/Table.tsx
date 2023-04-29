@@ -259,6 +259,7 @@ const Table = (props: Props): JSX.Element | null => {
               )))
           ),
           padding: "0 4rpx",
+          flex:columns?.length<5?1:'unset',
           ...column.titleStyle,
           ...titleStyle,
           justifyContent: column.align && JC_TA_MAP[column.align],
@@ -344,9 +345,10 @@ const Table = (props: Props): JSX.Element | null => {
                         columns.find(
                           (item) => item.dataIndex === columnItem.dataIndex
                         )?.title as string
-                      )?.length * 15
+                      )?.length * 12
                     ))
                 ),
+                flex:columns?.length<5?1:'unset',
                 [columnItem.fixed as string]:
                   columnItem.fixed &&
                   calculateFixedDistance({
